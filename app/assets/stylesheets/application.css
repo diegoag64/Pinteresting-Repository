@@ -12,6 +12,7 @@
  *
  *= require_tree .
  *= require_self
- *= require boostrap
- *= require boostrap_theme
+
  */
+ @import "bootstrap";
+ @import "bootstrap-sprockets";
