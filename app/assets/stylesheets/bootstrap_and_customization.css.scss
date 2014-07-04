@@ -1,1 +1,29 @@
+//= depend_on_asset "bootstrap/glyphicons-halflings-regular.eot"
+//= depend_on_asset "bootstrap/glyphicons-halflings-regular.svg"
+//= depend_on_asset "bootstrap/glyphicons-halflings-regular.ttf"
+//= depend_on_asset "bootstrap/glyphicons-halflings-regular.woff"
+
+$body-bg: #34495e;
+$navbar-inverse-bg: #2c3e50;
+$navbar-inverse-link-color: white;
+$navbar-inverse-toggle-icon-bar-bg: white;
+$navbar-inverse-toggle-border-color: white;
+$brand-primary: #f39c12;
+$jumbotron-bg: #ecf0f1;
+
+
+
 @import "bootstrap";
+
+.center {
+	text-align: center;
+}
+
+div.jumbotron.center {
+	width: 75%;
+	margin: 0 auto;
+}
+
+.jumbotron {
+padding-top: 20px;
+}
