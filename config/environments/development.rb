@@ -1,5 +1,4 @@
-
-
+Paperclip.options[:command_path] = "../ImageMagick-6.8.9-Q16/"
 
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
@@ -43,4 +42,3 @@ Rails.application.configure do
   config.action_mailer.default_url_options = {:host=> 'localhost:3000'}
 end
 
-Paperclip.options[:command_path] = "/usr/bin"
