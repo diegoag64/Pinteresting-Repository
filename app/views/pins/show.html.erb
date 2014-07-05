@@ -1,4 +1,4 @@
-<%= image_tag @pin.image.url %>
+<%= image_tag @pin.image.url(:medium) %>
 
 <p>
   <strong>Description:</strong>
@@ -6,7 +6,7 @@
 </p>
 
 <% if @pin.user == current_user %>
-	<%= link_to 'Edit', edit_pin_path(@pin) %> |
+	<%= link_to 'Edit', edit_pin_path(@pin), class: "btn btn-primary" %> |
 <% end %>
-<%= link_to 'Back', pins_path %>
+<%= link_to 'Back', pins_path, class: "btn btn-primary" %>
 
