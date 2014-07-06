@@ -30,6 +30,7 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'masonry-rails'
 gem 'will_paginate'
 gem 'will_paginate-bootstrap'
+gem 'twitter-bootstrap-rails'
 
 
 # Use ActiveModel has_secure_password
