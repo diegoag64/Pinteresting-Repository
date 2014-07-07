@@ -21,15 +21,16 @@
             <span class="glyphicon glyphicon-trash"></span> Delete
             <% end %>
           </button>
-          <% if user_signed_in? %>
+          
+            </div>
+            <% end %>
+            <% if user_signed_in? %>
               <button type="button" class="btn btn-success"> 
-                <%= link_to like_pin_path(pin), class: "white" do %>
+                <%= link_to edit_pin_path(pin), class: "white" do %>
               <span class="glyphicon glyphicon-thumbs-up"></span> Like
               <% end %> 
           <%end%> 
             </button> 
-            </div>
-            <% end %>
         </div>
     </div>
     <% end %>
