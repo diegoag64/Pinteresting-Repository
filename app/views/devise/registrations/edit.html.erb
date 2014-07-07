@@ -7,6 +7,11 @@
       <%= devise_error_messages! %>
 
       <div class="form-group">
+      <%= f.label :name %>
+      <%= f.text_field :name, autofocus: true, class: "form-control" %>
+      </div>
+
+      <div class="form-group">
       <%= f.label :email %>
       <%= f.email_field :email, autofocus: true, class: "form-control" %>
       </div>
@@ -31,13 +36,13 @@
       <%= f.password_field :current_password, autocomplete: "off", class: "form-control" %>
       </div>
 
-      <div><%= f.submit "Update" %></div>
+      <div><%= f.submit "Update", class: "btn btn-success" %></div>
     <% end %>
   </div>
 <div class= "panel-footer">
   <h3>Cancel my account</h3>
 
-  <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: "btn btn-primary" %></p>
+  <p>Unhappy? <%= button_to "Delete Account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: "btn btn-danger" %></p>
 
   <%= link_to "Back", :back %>
 </div>
