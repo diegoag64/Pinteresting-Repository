@@ -12,4 +12,6 @@ before_filter :configure_permitted_parameters, if: :devise_controller?
 		devise_parameter_sanitizer.for(:account_update) << :name
 	end
 
+
+
 end

@@ -15,6 +15,8 @@ gem 'coffee-rails', '~> 4.0.0'
 gem 'will_paginate-bootstrap'
 gem 'bootstrap-sass'
 gem 'aws-sdk'
+gem 'make_flaggable', :git => 'git://github.com/cavneb/make_flaggable.git'
+
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer',  platforms: :ruby
 gem 'devise'

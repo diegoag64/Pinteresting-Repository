@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
-  resources :pins
+  resources :pins do
+    member do
+      get 'like'
+    end
+  end
 
   devise_for :users
   get 'pages/home'

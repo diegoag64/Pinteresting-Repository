@@ -8,6 +8,7 @@
 	</div>
 		<div class="panel-body">
 		<p><%= @pin.description %></p>
+		<p><%= time_ago_in_words(@pin.created_at) + ' ago' %></p>
 		<p><strong><%= @pin.user.name if @pin.user %></strong></p>
 
 		<% if @pin.user == current_user %>

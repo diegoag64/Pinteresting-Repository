@@ -3,6 +3,13 @@ class PinsController < ApplicationController
   before_action :correct_user, only: [:edit, :update, :destroy]
   before_action :authenticate_user!, except: [:index, :show]
 
+ def like
+  @pin = Pin.find(params[:id])
+  current_user.flag(@pin, :like)
+  redirect_to pin_path, :notice => "You now like this pin"
+
+end
+
   def index
     @pins = Pin.all.order("created_at DESC").paginate(:per_page => 10, :page => params[:page])
   end
