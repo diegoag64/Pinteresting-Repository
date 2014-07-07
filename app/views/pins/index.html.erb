@@ -9,13 +9,17 @@
           <strong><%= pin.user.name if pin.user %></strong>
           
             <% if pin.user == current_user %>
-            <div class="actions">
-            <%= link_to edit_pin_path(pin) do %>
+            <div class="actions" style="margin-top: 10px;">
+              <button type="button" class="btn btn-info">
+            <%= link_to edit_pin_path(pin), class: "white white:hover" do %>
             <span class="glyphicon glyphicon-edit"></span> Edit
-            <% end %>            
-            <%= link_to  pin, method: :delete, data: { confirm: 'Are you sure?' } do %>
+            <% end %>  
+            </button>      
+            <button type="button" class="btn btn-danger">    
+            <%= link_to  pin, method: :delete, data: { confirm: 'Are you sure?' }, class: "white" do %>
             <span class="glyphicon glyphicon-trash"></span> Delete
             <% end %>
+          </button>
             </div>
             <% end %>
         </div>

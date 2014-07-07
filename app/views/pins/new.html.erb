@@ -1,8 +1,12 @@
+<div class="panel panel-default" style="width:40%;margin: 0 auto;">
+	<div class="panel-heading">
+		<h1>New pin</h1>
+	</div>
 
-<h1 style="color:white;">New pin</h1>
-
-
-<%= render 'form' %>
-
-<%= link_to 'Back', pins_path %>
-
+	<div class="panel-body">
+		<%= render 'form' %>
+	</div>
+	<div class="panel-footer">
+		<%= link_to 'Back', pins_path, class: "btn btn-info" %>
+	</div>
+</div>
