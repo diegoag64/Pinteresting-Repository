@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140707060029) do
+ActiveRecord::Schema.define(version: 20140707185030) do
 
   create_table "flaggings", force: true do |t|
     t.string   "flaggable_type"
