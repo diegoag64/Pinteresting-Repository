@@ -95,3 +95,5 @@ Rails.application.configure do
   }
 }
 end
+
+config.action_controller.perform_caching = false
