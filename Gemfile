@@ -11,6 +11,7 @@ gem 'sass-rails', '~> 4.0.3'
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .js.coffee assets and views
 gem 'coffee-rails', '~> 4.0.0'
+gem 'will_paginate-bootstrap'
 gem 'bootstrap-sass'
 gem 'aws-sdk'
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
@@ -29,7 +30,7 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 
 gem 'masonry-rails'
 gem 'will_paginate'
-gem 'will_paginate-bootstrap'
+
 gem 'twitter-bootstrap-rails'
 
 
