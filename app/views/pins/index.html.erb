@@ -18,11 +18,13 @@
             <span class="glyphicon glyphicon-edit"></span> Edit
             <% end %>  
             </button>     
+            <% if current_user.admin? %>
             <button type="button" class="btn btn-danger">    
             <%= link_to  pin, method: :delete, data: { confirm: 'Are you sure?' }, class: "white" do %>
             <span class="glyphicon glyphicon-trash"></span> Delete
             <% end %>
           </button>
+          <% end %>
           
             </div>
             <% end %>
