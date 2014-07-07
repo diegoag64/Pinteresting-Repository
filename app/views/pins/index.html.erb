@@ -8,6 +8,8 @@
           <%= pin.description %><br/>
           <strong><%= pin.user.name if pin.user %></strong><br/>
           <%= time_ago_in_words(pin.created_at) + ' ago' %>
+
+        </br>
           
             <% if pin.user == current_user %>
             <div class="actions" style="margin-top: 10px;">
@@ -24,13 +26,8 @@
           
             </div>
             <% end %>
-            <% if user_signed_in? %>
-              <button type="button" class="btn btn-success"> 
-                <%= link_to edit_pin_path(pin), class: "white" do %>
-              <span class="glyphicon glyphicon-thumbs-up"></span> Like
-              <% end %> 
-          <%end%> 
-            </button> 
+
+          
         </div>
     </div>
     <% end %>
