@@ -13,7 +13,7 @@
             
             <% if pin.user == current_user %>
             <div class="actions" style="margin-top: 10px;">
-              <button type="button" class="btn btn-info" style="float: left;">
+              <button type="button" class="btn btn-info" style="float: left; margin-right: 6px;">
             <%= link_to edit_pin_path(pin), class: "white" do %>
             <span class="glyphicon glyphicon-edit"></span> Edit
             <% end %>  
@@ -24,13 +24,13 @@
             <% end %>
 
                         <% if current_user.try(:admin?) %>
-                <button type="button" class="btn btn-danger" style="margin-left: 6px;">    
+                <button type="button" class="btn btn-danger">    
                 <%= link_to  pin, method: :delete, data: { confirm: 'Are you sure?' }, class: "white" do %>
-                <span class="glyphicon glyphicon-trash"></span>Admin Delete
+                <span class="glyphicon glyphicon-trash"></span> S.Delete
                 <% end %>
               </button>
             <% elsif pin.user == current_user %>
-            <button type="button" class="btn btn-danger" style="margin-left: 6px;">    
+            <button type="button" class="btn btn-danger" >    
                 <%= link_to  pin, method: :delete, data: { confirm: 'Are you sure?' }, class: "white" do %>
                 <span class="glyphicon glyphicon-trash"></span>Delete
                 <% end %>
