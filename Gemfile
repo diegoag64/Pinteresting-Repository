@@ -11,7 +11,7 @@ gem 'sass-rails', '~> 4.0.3'
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .js.coffee assets and views
 gem 'coffee-rails', '~> 4.0.0'
-gem 'will_paginate'
+
 gem 'will_paginate-bootstrap'
 gem 'bootstrap-sass'
 gem 'aws-sdk'
@@ -22,6 +22,7 @@ gem 'devise'
 gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
+gem 'will_paginate', '~> 3.0.7'
 gem 'jquery-turbolinks'
 gem 'paperclip', github: 'thoughtbot/paperclip'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
