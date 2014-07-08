@@ -37,14 +37,16 @@
                 <%= link_to  pin, method: :delete, data: { confirm: 'Are you sure?' }, class: "white" do %>
                 <span class="glyphicon glyphicon-trash"></span>Delete
                 <% end %>
+              </button>
                 <% end %>
             <% if user_signed_in? %>
 
-              <%= link_to "Like", like_pin_path(pin), method: :put, remote: true, data: { type: :json }%>
+              <%= link_to "Like", like_pin_path(pin), method: :put%>
               <%= link_to "Dislike", dislike_pin_path(pin), method: :put %>
 
 
               <%= pin.get_likes.size %>
+
 
 
 
