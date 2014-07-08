@@ -12,11 +12,11 @@
           <%= time_ago_in_words(pin.created_at) + ' ago' %>
 
         </br>
-            
-            <% if pin.user == current_user %>
-
             <div class="btn-group">
                 <button class="btn btn-default btn-sm dropdown-toggle" type="button" data-toggle="dropdown">
+            <% if pin.user == current_user %>
+
+            
                     Actions <span class="caret"></span>
                 </button>
                 <ul class="dropdown-menu" role="menu">
