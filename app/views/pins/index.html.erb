@@ -15,40 +15,58 @@
             
             <% if pin.user == current_user %>
 
-            <div class="actions" style="margin-top: 10px;">
-              <button type="button" class="btn btn-info" style="float: left; margin-right: 6px;">
+            <div class="btn-group">
+                <button class="btn btn-default btn-sm dropdown-toggle" type="button" data-toggle="dropdown">
+                    Actions <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu" role="menu">
+              <li>
             <%= link_to edit_pin_path(pin), class: "white" do %>
             <span class="glyphicon glyphicon-edit"></span> Edit
             <% end %>  
-            </button>     
+            </li>
+
 
           
-            </div>
+           
             <% end %>
 
                         <% if current_user.try(:admin?) %>
-                <button type="button" class="btn btn-danger">    
+                <li>    
                 <%= link_to  pin, method: :delete, data: { confirm: 'Are you sure?' }, class: "white" do %>
                 <span class="glyphicon glyphicon-trash"></span> S.Delete
                 <% end %>
-              </button>
+              </li>
             <% elsif pin.user == current_user %>
-            <button type="button" class="btn btn-danger" >    
+            <li>    
                 <%= link_to  pin, method: :delete, data: { confirm: 'Are you sure?' }, class: "white" do %>
                 <span class="glyphicon glyphicon-trash"></span>Delete
                 <% end %>
-              </button>
+              </li> 
                 <% end %>
             <% if user_signed_in? %>
               <% if pin.get_likes.size == 0 %>
-              <%= link_to "Like", like_pin_path(pin), method: :put%>
-              <% else %>
-              <%= link_to "Dislike", dislike_pin_path(pin), method: :put%>
+              <li>
+              <%= link_to like_pin_path(pin), method: :put, class: "white" do %>
+              <span class="glyphicon glyphicon-thumbs-up"></span> Like
               <% end %>
+            </li>
+              <% else %>
+              <li>
+              <%= link_to dislike_pin_path(pin), method: :put, class: "white" do%>
+              <span class="glyphicon glyphicon-thumbs-down"></span> Unlike
+              <% end %>
+              <% end %>
+            </li>
+
+            </div>
+
+          </ul>
+
 
            
-
-
+            <br/>
+              Likes:
               <%= pin.get_likes.size %>
 
 
