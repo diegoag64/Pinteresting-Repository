@@ -7,4 +7,5 @@ class Pin < ActiveRecord::Base
 	validates :description, presence: true
 	validates :image, presence: true
 	make_flaggable :like
+	acts_as_votable
 end

@@ -33,6 +33,8 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0',          group: :doc
 
 gem 'masonry-rails'
+gem 'acts_as_votable', '~> 0.10.0'
+gem 'gritter'
 
 
 gem 'twitter-bootstrap-rails'

@@ -13,8 +13,15 @@
 //= require jquery
 //= require jquery.turbolinks
 //= require jquery_ujs
+//= require gritter
 //= require bootstrap
 //= require turbolinks
 //= require masonry/jquery.masonry
 //= require_tree .
+
+$(document)
+    .on('ajax:send', '.vote', function () { $(this).addClass('loading'); })
+    .on('ajax:complete', '.vote', function () { $(this).removeClass('loading'); })
+    .on('ajax:error', '.vote', function(e, xhr, status, error) { console.log(status); console.log(error); })
+    .on('ajax:success', '.vote', function (e, data, status, xhr) { $(this).html(data.count); });
 

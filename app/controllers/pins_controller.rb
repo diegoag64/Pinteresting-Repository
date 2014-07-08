@@ -3,22 +3,23 @@ class PinsController < ApplicationController
   before_action :correct_user, only: [:edit, :update, :destroy]
   before_action :authenticate_user!, except: [:index, :show]
 
-def like
-    @current_user = current_user
-    @collection = Collection.find(params[:id])
-
-    if @current_user.flagged?(@collection, :like)
-        # User has liked it, let's UNlike it
-        @current_user.unflag(@collection, :like)
-        redirect_back_or root_path
-        flash[:success] = "You have unliked this collection."           
-    else
-        # User has not like it yet, let's like it
-        @current_user.flag(@collection, :like)
-        redirect_back_or root_path
-        flash[:success] = "You have liked this collection!"         
+  def upvote
+    @pin = Pin.find(params[:id])
+    @pin.liked_by current_user
+    if @pin.vote_registered?
+      flash[:success] = "Pin Disliked"
     end
-end
+    redirect_to pins_path
+  end
+
+  def downvote
+    @pin = Pin.find(params[:id])
+    @pin.downvote_from current_user
+    if @pin.vote_registered?
+      flash[:danger] = "Pin Disliked"
+    end
+    redirect_to pins_path
+  end
 
   def index
     @pins = Pin.all.order("created_at DESC").paginate(:per_page => 10, :page => params[:page])

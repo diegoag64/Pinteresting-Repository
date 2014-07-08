@@ -12,6 +12,7 @@
  *
  *= require_tree .
  *= require 'masonry/transitions'
+ *= require gritter
  *= require_self
 
 

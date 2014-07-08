@@ -10,6 +10,7 @@
 		<p><%= @pin.description %></p>
 		<p><%= time_ago_in_words(@pin.created_at) + ' ago' %></p>
 		<p><strong><%= @pin.user.name if @pin.user %></strong></p>
+		<p><% @pin.vote_registered? %></p>
 
 		<% if @pin.user == current_user %>
 			<%= link_to edit_pin_path(@pin) do %>

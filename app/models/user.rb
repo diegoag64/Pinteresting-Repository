@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+	acts_as_voter
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -6,7 +7,7 @@ class User < ActiveRecord::Base
 
     has_many :pins
 
-validates :name, presence: true
-validates :name, uniqueness: true
-make_flagger
+	validates :name, presence: true
+	validates :name, uniqueness: true
+
 end

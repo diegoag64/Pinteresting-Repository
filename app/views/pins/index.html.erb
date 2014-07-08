@@ -1,5 +1,7 @@
 <%= render 'pages/home' unless user_signed_in?%>
 
+
+
 <div id="pins" class="transitions-enabled">
    <% @pins.each do |pin| %>
    <div class="box panel panel-default">
@@ -12,6 +14,7 @@
         </br>
             
             <% if pin.user == current_user %>
+
             <div class="actions" style="margin-top: 10px;">
               <button type="button" class="btn btn-info" style="float: left; margin-right: 6px;">
             <%= link_to edit_pin_path(pin), class: "white" do %>
@@ -35,7 +38,18 @@
                 <span class="glyphicon glyphicon-trash"></span>Delete
                 <% end %>
                 <% end %>
+            <% if user_signed_in? %>
 
+              <%= link_to "Like", like_pin_path(pin), method: :put, remote: true, data: { type: :json }%>
+              <%= link_to "Dislike", dislike_pin_path(pin), method: :put %>
+
+
+              <%= pin.get_likes.size %>
+
+
+
+
+            <% end %>
           
         </div>
     </div>

@@ -3,7 +3,8 @@ Rails.application.routes.draw do
 
   resources :pins do
     member do
-      get 'like'
+      put "like", to: "pins#upvote"
+      put "dislike", to: "pins#downvote"
     end
   end
 
