@@ -12,23 +12,35 @@
           <%= time_ago_in_words(pin.created_at) + ' ago' %>
 
         </br>
-            <div class="btn-group">
+            
+
+
+              
+            <% if user_signed_in? %>
+                        <div class="btn-group">
                 <button class="btn btn-default btn-sm dropdown-toggle" type="button" data-toggle="dropdown">Actions <span class="caret"></span>
                 </button>
                 <ul class="dropdown-menu" role="menu">
-            <% if pin.user == current_user %>
+              <li>
+              <%= link_to dislike_pin_path(pin), method: :put, class: "white" do %>
+              <span class="glyphicon glyphicon-thumbs-down"></span> Unlike
+              
+            </li>
 
-            
-                    
+              <li>
+              <%= link_to like_pin_path(pin), method: :put, class: "white" do%>
+              <span class="glyphicon glyphicon-thumbs-up"></span> Like
+              <% end %>
+<% end %>
+            </li>
+
+            <% if pin.user == current_user %>
               <li>
             <%= link_to edit_pin_path(pin), class: "white" do %>
             <span class="glyphicon glyphicon-edit"></span> Edit
             <% end %>  
             </li>
 
-
-          
-           
             <% end %>
 
                         <% if current_user.try(:admin?) %>
@@ -44,38 +56,25 @@
                 <% end %>
               </li> 
                 <% end %>
-            <% if user_signed_in? %>
-              <% if pin.get_likes.size == 0 %>
-              <li>
-              <%= link_to like_pin_path(pin), method: :put, class: "white" do %>
-              <span class="glyphicon glyphicon-thumbs-up"></span> Like
-              <% end %>
-            </li>
-              <% else %>
-              <li>
-              <%= link_to dislike_pin_path(pin), method: :put, class: "white" do%>
-              <span class="glyphicon glyphicon-thumbs-down"></span> Unlike
-              <% end %>
-              <% end %>
-            </li>
 
+</ul>
             </div>
-
-          </ul>
+<% end %>
+          
 
 
            
-            <br/>
-              Likes:
-              <%= pin.get_likes.size %>
+            <p>              Likes:
+              <%= ActsAsVotable::Vote.count %>
+            </p>
 
 
 
 
-
-            <% end %>
+            
           
         </div>
+
     </div>
     <% end %>
 </div>
