@@ -7,7 +7,7 @@ class PinsController < ApplicationController
     @pin = Pin.find(params[:id])
     @pin.liked_by current_user
     if @pin.vote_registered?
-      flash[:success] = "Pin Disliked"
+      flash[:success] = "Pin Liked"
     end
     redirect_to pins_path
   end
