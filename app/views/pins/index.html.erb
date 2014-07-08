@@ -40,9 +40,13 @@
               </button>
                 <% end %>
             <% if user_signed_in? %>
-
+              <% if pin.get_likes.size == 0 %>
               <%= link_to "Like", like_pin_path(pin), method: :put%>
-              <%= link_to "Dislike", dislike_pin_path(pin), method: :put %>
+              <% else %>
+              <%= link_to "Dislike", dislike_pin_path(pin), method: :put%>
+              <% end %>
+
+           
 
 
               <%= pin.get_likes.size %>
