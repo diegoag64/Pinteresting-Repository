@@ -33,22 +33,11 @@
         </li>
         <% else %>
         <li>
-          
-
-<%= link_to "#hello", class: "fancybox" do %>
-          <span class="glyphicon glyphicon-ok-sign"></span> Log In
-   <%end%>
-<div style="display:none;">
-  <div id="hello">
-   <%= render 'pins/fancyboxlogin' %>
-
-  </div>
-</div>
-
-
-
-
-</li>
+           <%= link_to "#login", class: "fancybox" do %>
+            <span class="glyphicon glyphicon-ok-sign"></span> Log In
+            <%end%>
+            <%= render 'pins/fancyboxlogin' %>
+        </li>
 
 
         <% end %>

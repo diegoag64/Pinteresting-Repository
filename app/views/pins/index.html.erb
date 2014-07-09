@@ -9,10 +9,8 @@
   <div class="box panel panel-default">
     <img src="http://etc-mysitemyway.s3.amazonaws.com/icons/legacy-previews/icons-256/high-resolution-dark-blue-denim-jeans-icons-alphanumeric/072408-high-resolution-dark-blue-denim-jeans-icon-alphanumeric-plus-sign-simple.png">
     <div class="panel-body" style="text-align: center;">
-      <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
-  Add Pin
-</button>
-<%= render 'pins/modals' %>
+      <%= link_to "Add Pin", "#addpin", class: "fancybox btn btn-success"%>
+<%= render 'pins/fancyboxaddpin' %>
 
     </div>
   </div>
