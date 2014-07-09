@@ -32,10 +32,23 @@
           <%end%>
         </li>
         <% else %>
-        <li><%= link_to "Sign In", new_user_session_path %></li>
+        <li>
+          
+
+<%= link_to  "#", data: {toggle: "modal", target: "#loginModal"} do %>
+          <span class="glyphicon glyphicon-ok-sign"></span> Log In
+          <%end%>
+
+
+
+
+</li>
+<%= render 'pins/modals' %>
 
         <% end %>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
+
+
