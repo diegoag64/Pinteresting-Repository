@@ -85,7 +85,19 @@
            
             <p>              Likes:
               <%= pin.get_likes.size %>
-
+<%= link_to "Show mah Fancybox!", "#hello", class: "fancybox" %>
+<div style="display:none;">
+  <div id="hello">
+    <%= form_for(:user, :url => user_session_path) do |f| %>
+<%= f.label :email %>
+       <%= f.email_field :email, autofocus: true, class: "form-control" %>
+             <%= f.label :password %>
+        <%= f.password_field :password, class: "form-control", autocomplete: "off" %>
+         <%= f.check_box :remember_me %> <%= f.label :remember_me %>
+         <%= f.submit "Sign in", class: 'btn btn-primary' %>
+    <% end %>
+  </div>
+</div>
             </p>
 
 

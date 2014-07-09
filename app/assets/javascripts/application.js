@@ -17,6 +17,7 @@
 //= require bootstrap
 //= require turbolinks
 //= require masonry/jquery.masonry
+//= require fancybox
 //= require_tree .
 
 $('.upvote')
@@ -31,3 +32,8 @@ $('.upvote')
          .css('margin-left', (modal.outerWidth() / 2) * -1);
     return this;
 });
+
+$(document).ready(function() {
+  $("a.fancybox").fancybox();
+});
+

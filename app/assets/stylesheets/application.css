@@ -14,6 +14,7 @@
  *= require 'masonry/transitions'
  *= require gritter
  *= require_self
+ *= require fancybox
 
 
  */

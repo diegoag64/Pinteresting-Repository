@@ -40,6 +40,7 @@ gem 'simple_form'
 
 
 gem 'twitter-bootstrap-rails'
+gem 'fancybox2-rails'
 
 
 # Use ActiveModel has_secure_password
