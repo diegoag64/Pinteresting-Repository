@@ -24,3 +24,10 @@ $('.upvote')
   .on('ajax:complete', function () { $(this).removeClass('loading'); })
   .on('ajax:error', function () { $(this).after('<div class="error">There was an issue.</div>'); })
   .on('ajax:success', function (data) { $(this).html(data.count); });
+
+  $('.modal').on('show', function(e) {
+    var modal = $(this);
+    modal.css('margin-top', (modal.outerHeight() / 2) * -1)
+         .css('margin-left', (modal.outerWidth() / 2) * -1);
+    return this;
+});
