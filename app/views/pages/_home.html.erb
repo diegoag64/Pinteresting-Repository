@@ -2,10 +2,24 @@
 	<h1>Welcome to GameFid</h1>
 	<p> The Gaming Social Network </p>
 
-	  <p>
+	  
 
-	<%= link_to "Log In", new_user_session_path, class: "btn btn-success" %>
-	<%= link_to "Sign Up", new_user_registration_path, class: "btn btn-info" %>
- 	  </p>
+		<%= link_to "Log In", "#hello", class: "fancybox btn btn-success"%>
+	<div style="display:none;">
+  <div id="hello">
+  </div>
+</div>
+	<%= link_to "Sign Up", "#register", class: "fancybox btn btn-info"%>
+<div style="display:none;">
+  <div id="register">
+   <%= render 'pins/fancyboxregister' %>
+  </div>
+</div>
+
+ 	  
 
 </div>
+
+
+
+

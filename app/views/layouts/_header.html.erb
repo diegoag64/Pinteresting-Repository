@@ -35,15 +35,21 @@
         <li>
           
 
-<%= link_to  "#", data: {toggle: "modal", target: "#loginModal"} do %>
+<%= link_to "#hello", class: "fancybox" do %>
           <span class="glyphicon glyphicon-ok-sign"></span> Log In
-          <%end%>
+   <%end%>
+<div style="display:none;">
+  <div id="hello">
+   <%= render 'pins/fancyboxlogin' %>
+
+  </div>
+</div>
 
 
 
 
 </li>
-<%= render 'pins/modals' %>
+
 
         <% end %>
       </ul>
