@@ -20,6 +20,7 @@ gem 'make_flaggable', :git => 'git://github.com/cavneb/make_flaggable.git'
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer',  platforms: :ruby
 gem 'devise'
+gem 'json', '~> 1.8.1'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
@@ -35,6 +36,7 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'masonry-rails'
 gem 'acts_as_votable', '~> 0.10.0'
 gem 'gritter'
+gem 'simple_form'
 
 
 gem 'twitter-bootstrap-rails'

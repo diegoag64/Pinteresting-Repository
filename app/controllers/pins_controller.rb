@@ -7,14 +7,24 @@ class PinsController < ApplicationController
 
 
 
-  def upvote
-    @pin = Pin.find(params[:id])
-    @pin.liked_by current_user
-    if @pin.vote_registered?
-      flash[:success] = "Pin Liked"
+  # def upvote
+  #   @pin = Pin.find(params[:id])
+  #   @pin.liked_by current_user
+  #   if @pin.vote_registered?
+  #     flash[:success] = "Pin Liked"
+  #   end
+  #   redirect_to pins_path
+  # end
+
+    def upvote
+      @pin = Pin.find(params[:id])
+      @pin.liked_by current_user
+      respond_to do |format|
+        format.html {redirect_to :back }
+        format.json { render json: { count: @pin.liked_count } }
+      end
     end
-    redirect_to pins_path
-  end
+
 
   def downvote
     @pin = Pin.find(params[:id])

@@ -19,9 +19,8 @@
 //= require masonry/jquery.masonry
 //= require_tree .
 
-$(document)
-    .on('ajax:send', '.vote', function () { $(this).addClass('loading'); })
-    .on('ajax:complete', '.vote', function () { $(this).removeClass('loading'); })
-    .on('ajax:error', '.vote', function(e, xhr, status, error) { console.log(status); console.log(error); })
-    .on('ajax:success', '.vote', function (e, data, status, xhr) { $(this).html(data.count); });
-
+$('.upvote')
+  .on('ajax:send', function () { $(this).addClass('loading'); })
+  .on('ajax:complete', function () { $(this).removeClass('loading'); })
+  .on('ajax:error', function () { $(this).after('<div class="error">There was an issue.</div>'); })
+  .on('ajax:success', function (data) { $(this).html(data.count); });
