@@ -38,14 +38,19 @@
              
               <% if current_user.voted_up_on? pin %>
                 <li>
-                  <%= link_to dislike_pin_path(pin), method: :put, remote: true, class: 'upvote' do %>
+              <%= link_to dislike_pin_path(pin), method: :put, remote: true, data: { type: :json }, class: "downvote" do %>
                   <span class="glyphicon glyphicon-thumbs-down"></span> Unlike
+                  <a><%= pin.get_likes.size%> </a> 
+                  <% end %>
                 </li>
-            <% end %>
+            
             <% else %>
               <li>
-              <%= link_to like_pin_path(pin), method: :put, remote: true, class: "white upvote" do %>
+              <%= link_to like_pin_path(pin), method: :put, remote: true, data: { type: :json }, class: "upvote" do %>
+              
               <span class="glyphicon glyphicon-thumbs-up"></span> Like
+              <a><%= pin.get_likes.size%> </a> 
+
               <% end %>
 
 
@@ -82,8 +87,25 @@
 
 
            
-            <p>              Likes:
-              <%= pin.get_likes.size %>
+
+
+
+              <script>
+
+              $(".upvote")
+  .on('ajax:send', function () { $(this).addClass('loading'); })
+  .on('ajax:complete', function () { $(this).removeClass('loading'); })
+  .on('ajax:error', function(e, xhr, status, error) { console.log(status); console.log(error); })
+  .on('ajax:success', function (e, data, status, xhr) { $(this).next().html(data.count); }); 
+
+                $(".downvote")
+  .on('ajax:send', function () { $(this).addClass('loading'); })
+  .on('ajax:complete', function () { $(this).removeClass('loading'); })
+  .on('ajax:error', function(e, xhr, status, error) { console.log(status); console.log(error); })
+  .on('ajax:success', function (e, data, status, xhr) { $(this).next().html(data.count); }); 
+
+  </script>
+
 
             </p>
 

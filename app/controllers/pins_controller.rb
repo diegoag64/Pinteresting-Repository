@@ -21,7 +21,7 @@ class PinsController < ApplicationController
       @pin.liked_by current_user
       respond_to do |format|
         format.html {redirect_to :back }
-        format.json { render json: { count: @pin.liked_count } }
+        format.json { render json: { count: @pin.get_likes.size } }
       end
     end
 
@@ -29,11 +29,11 @@ class PinsController < ApplicationController
   def downvote
     @pin = Pin.find(params[:id])
     @pin.downvote_from current_user
-    if @pin.vote_registered?
-      flash[:danger] = "Pin Disliked"
+     respond_to do |format|
+        format.html {redirect_to :back }
+        format.json { render json: { count: @pin.get_likes.size } }
+      end
     end
-    redirect_to pins_path
-  end
 
   def index
     @pins = Pin.all.order("created_at DESC").paginate(:per_page => 10, :page => params[:page])
