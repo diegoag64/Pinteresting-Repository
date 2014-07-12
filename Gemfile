@@ -37,6 +37,8 @@ gem 'masonry-rails'
 gem 'acts_as_votable', '~> 0.10.0'
 gem 'gritter'
 gem 'simple_form'
+gem 'kaminari'
+gem 'jquery-infinite-pages'
 
 
 gem 'twitter-bootstrap-rails'

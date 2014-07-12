@@ -19,6 +19,8 @@
 //= require masonry/jquery.masonry
 //= require fancybox
 //= require_tree .
+//= require jquery.infinitescroll
+//= require jquery.infinite-pages
 
 $(".upvote")
   .on('ajax:send', function () { $(this).addClass('loading'); })
@@ -36,4 +38,6 @@ $(".upvote")
 $(document).ready(function() {
   $("a.fancybox").fancybox();
 });
+
+
 

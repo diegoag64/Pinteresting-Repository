@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140707220651) do
+ActiveRecord::Schema.define(version: 20140711183909) do
 
   create_table "flaggings", force: true do |t|
     t.string   "flaggable_type"
@@ -40,6 +40,14 @@ ActiveRecord::Schema.define(version: 20140707220651) do
   end
 
   add_index "pins", ["user_id"], name: "index_pins_on_user_id"
+
+  create_table "posts", force: true do |t|
+    t.string   "title"
+    t.string   "author"
+    t.text     "body"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "",    null: false

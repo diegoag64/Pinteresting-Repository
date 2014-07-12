@@ -26,10 +26,7 @@
           <%= time_ago_in_words(pin.created_at) + ' ago' %>
 
         </br>
-            
-
-
-              
+             
             <% if user_signed_in? %>
                         <div class="btn-group">
                 <button class="btn btn-default btn-sm dropdown-toggle" type="button" data-toggle="dropdown">Actions <span class="caret"></span>
@@ -39,7 +36,7 @@
               <% if current_user.voted_up_on? pin %>
                 <li>
               <%= link_to dislike_pin_path(pin), method: :put, remote: true, data: { type: :json }, class: "downvote" do %>
-                  <span class="glyphicon glyphicon-thumbs-down"></span> Unlike
+                  <span class="glyphicon glyphicon-thumbs-down"></span> <span class="lableapproved"> Unlike</span>
                   <span class="badge" id="votingdown"><%= pin.get_likes.size%> </span> 
                   <% end %>
                 </li>
@@ -48,7 +45,7 @@
               <li>
               <%= link_to like_pin_path(pin), method: :put, remote: true, data: { type: :json }, class: "upvote" do %>
               
-              <span class="upvote glyphicon glyphicon-thumbs-up"></span> Like
+              <span class="upvote glyphicon glyphicon-thumbs-up"></span> <span class="lableapproved"> Like </span>
               <span class="badge" id="votingup"><%= pin.get_likes.size%> </span> 
 
               <% end %>
@@ -92,17 +89,27 @@
 
               <script>
 
+
+
               $(".upvote")
   .on('ajax:send', function () { $(this).addClass('loading'); })
   .on('ajax:complete', function () { $(this).removeClass('loading'); })
   .on('ajax:error', function(e, xhr, status, error) { console.log(status); console.log(error); })
-  .on('ajax:success', function (e, data, status, xhr) { $(this).find("#votingup").html(data.count); }); 
+  .on('ajax:success', function (e, data, status, xhr) {$(this).find("#votingup").html(data.count);
+          $(this).attr("class","downvote");
+          $(this).find('.lableapproved').text('Liked');
+   }); 
 
                 $(".downvote")
   .on('ajax:send', function () { $(this).addClass('loading'); })
   .on('ajax:complete', function () { $(this).removeClass('loading'); })
   .on('ajax:error', function(e, xhr, status, error) { console.log(status); console.log(error); })
-  .on('ajax:success', function (e, data, status, xhr) {$(this).find("#votingdown").html(data.count); }); 
+  .on('ajax:success', function (e, data, status, xhr) {$(this).find("#votingdown").html(data.count);
+           $(this).attr("class","upvote");
+           $(this).find('.lableapproved').text('Unliked');
+ }); 
+
+
 
   </script>
 
@@ -120,5 +127,40 @@
     <% end %>
 </div>
 <div class="center">
-  <%= will_paginate @posts, renderer: BootstrapPagination::Rails %>
+  <%= will_paginate @pins, renderer: BootstrapPagination::Rails %>
 </div>
+
+
+
+
+
+
+             <!--  $(".upvote")
+  .on('ajax:send', function () { $(this).addClass('loading'); })
+  .on('ajax:complete', function () { $(this).removeClass('loading'); })
+  .on('ajax:error', function(e, xhr, status, error) { console.log(status); console.log(error); })
+  .on('ajax:success', function (e, data, status, xhr) {$(this).find("#votingup").html(data.count);
+    var holder2 = $(this).attr("href");
+    values2 = holder2.split('/');
+    one2=values2[2];
+    $(this).attr("href","/pins/"+one2+"/unlike")
+          .attr("class","downvote")
+          .find('.lableapproved').text('Unlike');
+    $(this).find('span.glyphicon').attr("class","glyphicon glyphicon-thumbs-down");
+    $(this).find("#votingup").html(data.count);
+   }); 
+
+                $(".downvote")
+  .on('ajax:send', function () { $(this).addClass('loading'); })
+  .on('ajax:complete', function () { $(this).removeClass('loading'); })
+  .on('ajax:error', function(e, xhr, status, error) { console.log(status); console.log(error); })
+  .on('ajax:success', function (e, data, status, xhr) {$(this).find("#votingdown").html(data.count);
+    var holder = $(this).attr("href");
+    values=holder.split('/');
+    one=values[2];
+    $(this).attr("href","/pins/"+one+"/like")
+           .attr("class","upvote")
+           .find('.lableapproved').text('Like');
+           $(this).find('span.glyphicon').attr("class","glyphicon glyphicon-thumbs-up");
+           $(this).find("#votingdown").html(data.count);
+ });  -->
